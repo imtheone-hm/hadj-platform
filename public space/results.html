@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lottery Results - Hajj Platform</title>
-    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
+    
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">🕌 Hajj Platform</a>
+            <a href="index.html" class="logo"> Hajj Platform</a>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="results.html">Results</a></li>
@@ -20,7 +19,6 @@
         </div>
     </nav>
 
-    <!-- Header -->
     <header>
         <div class="container">
             <h1>Lottery Results</h1>
@@ -28,13 +26,13 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+   
     <main>
         <div class="container">
-            <!-- Filter Section -->
+            
             <div class="card">
                 <h3>Filter Results</h3>
-                <div class="form-row" style="margin-top: 1rem;">
+                <div class="form-row">
                     <div class="form-group">
                         <label for="yearFilter">Select Year:</label>
                         <select id="yearFilter">
@@ -56,14 +54,14 @@
                 </div>
             </div>
 
-            <!-- Past Lotteries -->
+          
             <section class="card">
                 <h2>Completed Lotteries</h2>
                 
-                <!-- Lottery 2026 -->
-                <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">Hajj 2026 Lottery</h3>
+              
+                <div>
+                    <div>
+                        <h3>Hajj 2026 Lottery</h3>
                         <span class="badge badge-success">Completed</span>
                     </div>
                     <p><strong>Lottery Date:</strong> August 15, 2025</p>
@@ -73,10 +71,10 @@
                     <button class="btn btn-primary" onclick="showWinners(2026)">View Winners List</button>
                 </div>
 
-                <!-- Lottery 2025 -->
-                <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">Hajj 2025 Lottery</h3>
+          
+                <div>
+                    <div>
+                        <h3>Hajj 2025 Lottery</h3>
                         <span class="badge badge-success">Completed</span>
                     </div>
                     <p><strong>Lottery Date:</strong> August 10, 2024</p>
@@ -86,10 +84,10 @@
                     <button class="btn btn-primary" onclick="showWinners(2025)">View Winners List</button>
                 </div>
 
-                <!-- Lottery 2024 -->
-                <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">Hajj 2024 Lottery</h3>
+               
+                <div>
+                    <div>
+                        <h3>Hajj 2024 Lottery</h3>
                         <span class="badge badge-success">Completed</span>
                     </div>
                     <p><strong>Lottery Date:</strong> August 12, 2023</p>
@@ -99,10 +97,10 @@
                     <button class="btn btn-primary" onclick="showWinners(2024)">View Winners List</button>
                 </div>
 
-                <!-- Lottery 2023 -->
-                <div style="margin-top: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">Hajj 2023 Lottery</h3>
+              
+                <div >
+                    <div>
+                        <h3 >Hajj 2023 Lottery</h3>
                         <span class="badge badge-success">Completed</span>
                     </div>
                     <p><strong>Lottery Date:</strong> August 15, 2022</p>
@@ -113,13 +111,13 @@
                 </div>
             </section>
 
-            <!-- Winners Modal Display -->
-            <div id="winnersModal" style="display: none; margin-top: 2rem;">
+           
+            <div id="winnersModal">
                 <section class="card">
-                    <button onclick="closeWinners()" style="float: right;" class="btn btn-secondary" style="margin: 0;">Close</button>
+                    <button onclick="closeWinners()" class="btn btn-secondary">Close</button>
                     <h2 id="winnersTitle">Winners List</h2>
                     
-                    <div style="overflow-x: auto;">
+                    <div>
                         <table>
                             <thead>
                                 <tr>
@@ -140,7 +138,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+  
     <footer>
         <div class="container">
             <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
@@ -149,7 +147,7 @@
     </footer>
 
     <script>
-        // Sample winners data
+       
         const winnersData = {
             2026: [
                 { nin: '12345678901', name: 'Ahmed Mohammed', email: 'ahmed.m@email.com' },
