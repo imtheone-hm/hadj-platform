@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Results - Hajj Platform</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">🕌 Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Lottery Results</h1>
+            <p>Consult results from previous lottery draws</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Filter Section -->
+            <div class="card">
+                <h3>Filter Results</h3>
+                <div class="form-row" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <label for="yearFilter">Select Year:</label>
+                        <select id="yearFilter">
+                            <option value="">-- All Years --</option>
+                            <option value="2026">2026</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="statusFilter">Status:</label>
+                        <select id="statusFilter">
+                            <option value="">-- All Status --</option>
+                            <option value="completed">Completed</option>
+                            <option value="ongoing">Ongoing</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Lotteries -->
+            <section class="card">
+                <h2>Completed Lotteries</h2>
+                
+                <!-- Lottery 2026 -->
+                <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2026 Lottery</h3>
+                        <span class="badge badge-success">Completed</span>
+                    </div>
+                    <p><strong>Lottery Date:</strong> August 15, 2025</p>
+                    <p><strong>Registration Period:</strong> January 1, 2025 - July 31, 2025</p>
+                    <p><strong>Total Participants:</strong> 125,000</p>
+                    <p><strong>Winners Selected:</strong> 5,000</p>
+                    <button class="btn btn-primary" onclick="showWinners(2026)">View Winners List</button>
+                </div>
+
+                <!-- Lottery 2025 -->
+                <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2025 Lottery</h3>
+                        <span class="badge badge-success">Completed</span>
+                    </div>
+                    <p><strong>Lottery Date:</strong> August 10, 2024</p>
+                    <p><strong>Registration Period:</strong> January 1, 2024 - July 31, 2024</p>
+                    <p><strong>Total Participants:</strong> 118,500</p>
+                    <p><strong>Winners Selected:</strong> 5,000</p>
+                    <button class="btn btn-primary" onclick="showWinners(2025)">View Winners List</button>
+                </div>
+
+                <!-- Lottery 2024 -->
+                <div style="margin-top: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--border-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2024 Lottery</h3>
+                        <span class="badge badge-success">Completed</span>
+                    </div>
+                    <p><strong>Lottery Date:</strong> August 12, 2023</p>
+                    <p><strong>Registration Period:</strong> January 1, 2023 - July 31, 2023</p>
+                    <p><strong>Total Participants:</strong> 112,300</p>
+                    <p><strong>Winners Selected:</strong> 5,000</p>
+                    <button class="btn btn-primary" onclick="showWinners(2024)">View Winners List</button>
+                </div>
+
+                <!-- Lottery 2023 -->
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2023 Lottery</h3>
+                        <span class="badge badge-success">Completed</span>
+                    </div>
+                    <p><strong>Lottery Date:</strong> August 15, 2022</p>
+                    <p><strong>Registration Period:</strong> January 1, 2022 - July 31, 2022</p>
+                    <p><strong>Total Participants:</strong> 98,700</p>
+                    <p><strong>Winners Selected:</strong> 5,000</p>
+                    <button class="btn btn-primary" onclick="showWinners(2023)">View Winners List</button>
+                </div>
+            </section>
+
+            <!-- Winners Modal Display -->
+            <div id="winnersModal" style="display: none; margin-top: 2rem;">
+                <section class="card">
+                    <button onclick="closeWinners()" style="float: right;" class="btn btn-secondary" style="margin: 0;">Close</button>
+                    <h2 id="winnersTitle">Winners List</h2>
+                    
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>NIN</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Selection Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="winnersTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample winners data
+        const winnersData = {
+            2026: [
+                { nin: '12345678901', name: 'Ahmed Mohammed', email: 'ahmed.m@email.com' },
+                { nin: '12345678902', name: 'Fatima Hassan', email: 'fatima.h@email.com' },
+                { nin: '12345678903', name: 'Ali Ibrahim', email: 'ali.i@email.com' },
+                { nin: '12345678904', name: 'Aisha Khalid', email: 'aisha.k@email.com' },
+                { nin: '12345678905', name: 'Omar Abdullah', email: 'omar.a@email.com' },
+            ],
+            2025: [
+                { nin: '12345678911', name: 'Maryam Ali', email: 'maryam.a@email.com' },
+                { nin: '12345678912', name: 'Hassan Karim', email: 'hassan.k@email.com' },
+                { nin: '12345678913', name: 'Leila Rashid', email: 'leila.r@email.com' },
+                { nin: '12345678914', name: 'Mohammed Noor', email: 'mohammed.n@email.com' },
+                { nin: '12345678915', name: 'Zainab Salim', email: 'zainab.s@email.com' },
+            ],
+            2024: [
+                { nin: '12345678921', name: 'Sara Ibrahim', email: 'sara.i@email.com' },
+                { nin: '12345678922', name: 'Karim Mohammed', email: 'karim.m@email.com' },
+                { nin: '12345678923', name: 'Noor Hassan', email: 'noor.h@email.com' },
+                { nin: '12345678924', name: 'Hana Rashid', email: 'hana.r@email.com' },
+                { nin: '12345678925', name: 'Talal Ahmed', email: 'talal.a@email.com' },
+            ],
+            2023: [
+                { nin: '12345678931', name: 'Amira Saleh', email: 'amira.s@email.com' },
+                { nin: '12345678932', name: 'Bilal Karim', email: 'bilal.k@email.com' },
+                { nin: '12345678933', name: 'Dana Farah', email: 'dana.f@email.com' },
+                { nin: '12345678934', name: 'Rashid Noor', email: 'rashid.n@email.com' },
+                { nin: '12345678935', name: 'Layla Sami', email: 'layla.s@email.com' },
+            ]
+        };
+
+        function showWinners(year) {
+            const modal = document.getElementById('winnersModal');
+            const titleElement = document.getElementById('winnersTitle');
+            const tableBody = document.getElementById('winnersTableBody');
+            
+            titleElement.textContent = `Hajj ${year} - Winners List`;
+            tableBody.innerHTML = '';
+            
+            const winners = winnersData[year] || [];
+            winners.forEach((winner, index) => {
+                const row = `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${winner.nin}</td>
+                        <td>${winner.name}</td>
+                        <td>${winner.email}</td>
+                        <td>August 2025</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+            
+            modal.style.display = 'block';
+            modal.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeWinners() {
+            document.getElementById('winnersModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

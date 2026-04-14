@@ -4,72 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard - Hajj Platform</title>
-    <link rel="stylesheet" href="../public space/styles.css">
-    <script src="../validation.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    
+    <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="../public space/index.html" class="logo"> Hajj Platform</a>
+            <a href="../index.html" class="logo">🕌 Hajj Platform</a>
             <ul>
                 <li><a href="index.html">Dashboard</a></li>
                 <li><a href="join-lottery.html">Join Lottery</a></li>
                 <li><a href="profile.html">My Profile</a></li>
-                <li><a href="notification.html">Notification</a></li>
-                <li><a href="../public space/index.html">Logout</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="../index.html">Logout</a></li>
             </ul>
         </div>
     </nav>
 
-   
+    <!-- Header -->
     <header>
         <div class="container">
-            <h1>Welcome, Ahmed Mohammed! </h1>
+            <h1>Welcome, Ahmed Mohammed! 👋</h1>
             <p>User Dashboard - Your Hajj Platform Hub</p>
         </div>
     </header>
 
-  
+    <!-- Main Content -->
     <main>
         <div class="container">
-           
-            <div class="grid">
+            <!-- Quick Stats -->
+            <div class="grid" style="margin-bottom: 3rem;">
                 <div class="card">
-                    <h3 >Status</h3>
-                    <p>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📊 Status</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">
                         <strong>Account Status:</strong> <span class="badge badge-success">Active</span>
                     </p>
-                    <p >
+                    <p style="font-size: 1.1rem;">
                         <strong>Lotteries Joined:</strong> 3
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3 > Current Lottery</h3>
-                    <p>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🎯 Current Lottery</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">
                         <strong>Hajj 2026</strong>
                     </p>
-                    <p >
+                    <p style="font-size: 0.9rem; color: #666;">
                         Registration closes: December 31, 2025
                     </p>
                 </div>
 
                 <div class="card">
-                    <h3 > Selection History</h3>
-                    <p >
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🏆 Selection History</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">
                         <strong>Times Selected:</strong> 0
                     </p>
-                    <p>
+                    <p style="font-size: 0.9rem; color: #666;">
                         Keep trying! Your chance will come.
                     </p>
                 </div>
             </div>
 
-            
+            <!-- Recent Activity -->
             <div class="card">
                 <h2>Recent Activity</h2>
-                <table >
+                <table style="margin-top: 1rem;">
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -97,10 +96,10 @@
                 </table>
             </div>
 
-           
-            <div>
+            <!-- Quick Actions -->
+            <div style="margin-top: 3rem; text-align: center;">
                 <h2>Quick Actions</h2>
-                <div >
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
                     <a href="join-lottery.html" class="btn btn-primary">Join Active Lottery</a>
                     <a href="profile.html" class="btn btn-primary">View My Profile</a>
                     <a href="news.html" class="btn btn-primary">Latest News</a>
@@ -110,11 +109,11 @@
         </div>
     </main>
 
-  
+    <!-- Footer -->
     <footer>
         <div class="container">
-            
-           <p>For support, contact us at: hajj@gmail.com</p>
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
         </div>
     </footer>
 </body>

@@ -1,157 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Hajj Platform</title>
-    <link rel="stylesheet" href="../public space/styles.css" />
-    <script src="../validation.js" defer></script>
-  </head>
-  <body>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
     <nav>
-      <div class="container">
-        <a href="../public space/index.html" class="logo"> Hajj Platform</a>
-        <ul>
-          <li><a href="index.html">Dashboard</a></li>
-          <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
-          <li><a href="manage-users.html">Manage Users</a></li>
-          <li><a href="../public space/index.html">Logout</a></li>
-        </ul>
-      </div>
+        <div class="container">
+            <a href="../index.html" class="logo">🕌 Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
+                <li><a href="manage-users.html">Manage Users</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <!-- Header -->
     <header>
-      <div class="container">
-        <h1>Admin Dashboard</h1>
-        <p>Platform Administration & Control Center</p>
-      </div>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p>Platform Administration & Control Center</p>
+        </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-      <div class="container">
-        <div class="grid">
-          <div class="card">
-            <h3>Total Users</h3>
-            <p>127,540</p>
-            <p>
-              <span> +2,350 this month</span>
-            </p>
-          </div>
+        <div class="container">
+            <!-- Statistics Dashboard -->
+            <div class="grid" style="margin-bottom: 3rem;">
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">👥 Total Users</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--primary-color); margin: 0;">127,540</p>
+                    <p style="color: #666; margin: 0.5rem 0 0 0;">
+                        <span style="color: var(--success-color);">↑ +2,350 this month</span>
+                    </p>
+                </div>
 
-          <div class="card">
-            <h3>Active Lotteries</h3>
-            <p>3</p>
-            <p>Hajj 2026, 2027, 2028</p>
-          </div>
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🎯 Active Lotteries</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--primary-color); margin: 0;">3</p>
+                    <p style="color: #666; margin: 0.5rem 0 0 0;">
+                        Hajj 2026, 2027, 2028
+                    </p>
+                </div>
 
-          <div class="card">
-            <h3>Pending Applications</h3>
-            <p>456</p>
-            <p>Awaiting review and verification</p>
-          </div>
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📝 Pending Applications</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--primary-color); margin: 0;">456</p>
+                    <p style="color: #666; margin: 0.5rem 0 0 0;">
+                        Awaiting review and verification
+                    </p>
+                </div>
 
-          <div class="card">
-            <h3>Blocked Accounts</h3>
-            <p>12</p>
-            <p>Due to suspicious activity or violations</p>
-          </div>
+                <div class="card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🚫 Blocked Accounts</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--danger-color); margin: 0;">12</p>
+                    <p style="color: #666; margin: 0.5rem 0 0 0;">
+                        Due to suspicious activity or violations
+                    </p>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card">
+                <h2>Quick Administrative Actions</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <a href="manage-lotteries.html" class="btn btn-primary">Create New Lottery</a>
+                    <a href="manage-lotteries.html" class="btn btn-primary">View All Lotteries</a>
+                    <a href="manage-users.html" class="btn btn-primary">View All Users</a>
+                    <button class="btn btn-secondary" onclick="alert('Generate reports functionality')">Generate Reports</button>
+                    <button class="btn btn-secondary" onclick="alert('System settings functionality')">System Settings</button>
+                    <button class="btn btn-danger" onclick="alert('This would show system logs')">View System Logs</button>
+                </div>
+            </div>
+
+            <!-- Recent Lottery Activities -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Recent Lottery Activities</h3>
+                <table style="margin-top: 1rem;">
+                    <thead>
+                        <tr>
+                            <th>Lottery</th>
+                            <th>Status</th>
+                            <th>Participants</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hajj 2026</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>78,500</td>
+                            <td><a href="manage-lotteries.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Hajj 2025</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                            <td>112,300</td>
+                            <td><a href="manage-lotteries.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Hajj 2024</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                            <td>98,700</td>
+                            <td><a href="manage-lotteries.html" style="color: var(--primary-color);">View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- System Health -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3>System Health Status</h3>
+                <div style="margin-top: 1rem;">
+                    <p><strong>Database:</strong> <span class="badge badge-success">Operational</span></p>
+                    <p><strong>API Server:</strong> <span class="badge badge-success">Operational</span></p>
+                    <p><strong>Email Service:</strong> <span class="badge badge-success">Operational</span></p>
+                    <p><strong>Payment Gateway:</strong> <span class="badge badge-success">Operational</span></p>
+                </div>
+            </div>
         </div>
-
-        <div class="card">
-          <h2>Quick Administrative Actions</h2>
-          <div>
-            <a href="manage-lotteries.html" class="btn btn-primary"
-              >Create New Lottery</a
-            >
-            <a href="manage-lotteries.html" class="btn btn-primary"
-              >View All Lotteries</a
-            >
-            <a href="manage-users.html" class="btn btn-primary"
-              >View All Users</a
-            >
-            <button
-              class="btn btn-secondary"
-              onclick="alert('Generate reports functionality')"
-            >
-              Generate Reports
-            </button>
-            <button
-              class="btn btn-secondary"
-              onclick="alert('System settings functionality')"
-            >
-              System Settings
-            </button>
-            <button
-              class="btn btn-danger"
-              onclick="alert('This would show system logs')"
-            >
-              View System Logs
-            </button>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top: 2rem">
-          <h3>Recent Lottery Activities</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Lottery</th>
-                <th>Status</th>
-                <th>Participants</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Hajj 2026</td>
-                <td><span class="badge badge-success">Active</span></td>
-                <td>78,500</td>
-                <td><a href="manage-lotteries.html">View Details</a></td>
-              </tr>
-              <tr>
-                <td>Hajj 2025</td>
-                <td><span class="badge badge-success">Completed</span></td>
-                <td>112,300</td>
-                <td><a href="manage-lotteries.html">View Details</a></td>
-              </tr>
-              <tr>
-                <td>Hajj 2024</td>
-                <td><span class="badge badge-success">Completed</span></td>
-                <td>98,700</td>
-                <td><a href="manage-lotteries.html">View Details</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="card">
-          <h3>System Health Status</h3>
-          <div>
-            <p>
-              <strong>Database:</strong>
-              <span class="badge badge-success">Operational</span>
-            </p>
-            <p>
-              <strong>API Server:</strong>
-              <span class="badge badge-success">Operational</span>
-            </p>
-            <p>
-              <strong>Email Service:</strong>
-              <span class="badge badge-success">Operational</span>
-            </p>
-            <p>
-              <strong>Payment Gateway:</strong>
-              <span class="badge badge-success">Operational</span>
-            </p>
-          </div>
-        </div>
-      </div>
     </main>
 
+    <!-- Footer -->
     <footer>
-      <div class="container">
-        <p>For support, contact us at: hajj@gmail.com</p>
-      </div>
+        <div class="container">
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
+        </div>
     </footer>
-  </body>
+</body>
 </html>
