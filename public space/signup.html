@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Hajj Platform</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">🕌 Hajj Platform</a>
+            <a href="index.html" class="logo"> Hajj Platform</a>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="results.html">Results</a></li>
@@ -20,7 +19,7 @@
         </div>
     </nav>
 
-    <!-- Header -->
+   
     <header>
         <div class="container">
             <h1>Create Your Account</h1>
@@ -28,12 +27,30 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+   
     <main>
         <div class="container">
-            <div class="form-container">
+         
+            <div class="form-container" id="roleSelection">
+                <h2>Choose Your Account Type</h2>
+                <p>Select whether you want to sign up as a regular user or an administrator</p>
+                <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 2rem;">
+                    <button type="button" class="btn btn-primary" onclick="selectRole('user')" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                         Sign Up as User
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="selectRole('admin')" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                        Sign Up as Admin
+                    </button>
+                </div>
+            </div>
+
+            
+            <div class="form-container" id="formContainer" style="display: none;">
+                <div style="margin-bottom: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="backToRoleSelection()">← Back to Role Selection</button>
+                </div>
                 <form id="signupForm">
-                    <!-- Personal Information -->
+                    
                     <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
                         <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Personal Information</legend>
                         
@@ -82,7 +99,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Family Information -->
+                    
                     <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
                         <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Family Information</legend>
                         
@@ -133,7 +150,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Contact Information -->
+                  
                     <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
                         <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Contact Information</legend>
                         
@@ -172,9 +189,9 @@
                         </div>
                     </fieldset>
 
-                    <!-- Account Security -->
-                    <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
-                        <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Account Security</legend>
+                    
+                    <fieldset >
+                        <legend>Account Security</legend>
                         
                         <div class="form-group">
                             <label for="password">Password *</label>
@@ -186,7 +203,7 @@
                                 placeholder="Create a strong password"
                                 minlength="8"
                             >
-                            <small style="color: #666; margin-top: 0.5rem; display: block;">
+                            <small >
                                 Password must be at least 8 characters long
                             </small>
                         </div>
@@ -203,41 +220,61 @@
                         </div>
                     </fieldset>
 
-                    <!-- Terms and Conditions -->
-                    <div class="form-group" style="margin-bottom: 2rem;">
-                        <label style="display: flex; align-items: flex-start;">
+                 
+                    <div class="form-group">
+                        <label>
                             <input 
                                 type="checkbox" 
                                 id="terms" 
                                 name="terms" 
                                 required 
-                                style="width: auto; margin-right: 0.5rem; margin-top: 0.25rem; cursor: pointer;"
+                               
                             >
-                            <span style="cursor: pointer;">
+                            <span >
                                 I agree to the Terms and Conditions and confirm that all information provided is accurate and truthful.
                             </span>
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 1rem; padding: 1rem;">Create Account</button>
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                 </form>
 
                 <div style="text-align: center; margin-top: 2rem;">
-                    <p>Already have an account? <a href="login.html" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Login here</a></p>
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
+   
     <footer>
         <div class="container">
-            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
-            <p>For support, contact us at: support@hajjplatform.com</p>
+            
+            <p>For support, contact us at: hajj@gmail.com</p>
         </div>
     </footer>
 
     <script>
+        let selectedRole = null;
+
+        function selectRole(role) {
+            selectedRole = role;
+            document.getElementById('roleSelection').style.display = 'none';
+            document.getElementById('formContainer').style.display = 'block';
+            
+            
+            document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function backToRoleSelection() {
+            selectedRole = null;
+            document.getElementById('roleSelection').style.display = 'block';
+            document.getElementById('formContainer').style.display = 'none';
+            
+            
+            document.getElementById('roleSelection').scrollIntoView({ behavior: 'smooth' });
+        }
+
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -254,9 +291,16 @@
                 return;
             }
             
-            alert('Account created successfully! Redirecting to login...');
-            // In a real application, this would send data to a backend
-            window.location.href = 'login.html';
+            alert('Account created successfully! Redirecting...');
+            
+           
+            if(selectedRole === 'admin') {
+                window.location.href = '../admin-space/index.html';
+            } else if(selectedRole === 'user') {
+                window.location.href = '../user-space/index.html';
+            } else {
+                window.location.href = 'login.html';
+            }
         });
     </script>
 </body>
