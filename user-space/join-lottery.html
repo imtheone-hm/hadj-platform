@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Lottery - Hajj Platform</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">🕌 Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="join-lottery.html">Join Lottery</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Join an Active Lottery</h1>
+            <p>Participate in Hajj lotteries and get your chance</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Eligibility Check Alert -->
+            <div class="alert alert-info">
+                <strong>ℹ️ Important:</strong> You meet all eligibility requirements to participate in active lotteries.
+            </div>
+
+            <!-- Active Lotteries -->
+            <div class="grid">
+                <!-- Hajj 2026 Lottery Card -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2026</h3>
+                        <span class="badge badge-success">Active</span>
+                    </div>
+                    
+                    <p><strong>Lottery Date:</strong> August 15, 2025</p>
+                    <p><strong>Registration Status:</strong> Open</p>
+                    <p><strong>Closes In:</strong> 150 days</p>
+                    
+                    <table style="width: 100%; margin: 1rem 0; font-size: 0.9rem;">
+                        <tr>
+                            <td><strong>Total Spots:</strong></td>
+                            <td>5,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Current Registrations:</strong></td>
+                            <td>78,500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Your Participation:</strong></td>
+                            <td><span class="badge badge-warning">Already Joined</span></td>
+                        </tr>
+                    </table>
+                    
+                    <button class="btn btn-primary btn-block" onclick="alert('You are already registered for this lottery!')">Already Registered</button>
+                </div>
+
+                <!-- Hajj 2027 Lottery Card -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2027</h3>
+                        <span class="badge badge-success">Active</span>
+                    </div>
+                    
+                    <p><strong>Lottery Date:</strong> August 20, 2026</p>
+                    <p><strong>Registration Status:</strong> Open</p>
+                    <p><strong>Closes In:</strong> 515 days</p>
+                    
+                    <table style="width: 100%; margin: 1rem 0; font-size: 0.9rem;">
+                        <tr>
+                            <td><strong>Total Spots:</strong></td>
+                            <td>5,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Current Registrations:</strong></td>
+                            <td>15,200</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Your Participation:</strong></td>
+                            <td><span class="badge badge-danger">Not Joined</span></td>
+                        </tr>
+                    </table>
+                    
+                    <button class="btn btn-primary btn-block" onclick="confirmJoin('Hajj 2027')">Join This Lottery</button>
+                </div>
+
+                <!-- Hajj 2028 Lottery Card -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Hajj 2028</h3>
+                        <span class="badge badge-warning">Upcoming</span>
+                    </div>
+                    
+                    <p><strong>Lottery Date:</strong> August 25, 2027</p>
+                    <p><strong>Registration Status:</strong> Coming Soon</p>
+                    <p><strong>Opens In:</strong> 365 days</p>
+                    
+                    <table style="width: 100%; margin: 1rem 0; font-size: 0.9rem;">
+                        <tr>
+                            <td><strong>Total Spots:</strong></td>
+                            <td>TBD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Current Registrations:</strong></td>
+                            <td>Closed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Your Participation:</strong></td>
+                            <td>--</td>
+                        </tr>
+                    </table>
+                    
+                    <button class="btn btn-primary btn-block" disabled style="opacity: 0.5; cursor: not-allowed;">Registration Not Open</button>
+                </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Lottery Participation Terms</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>By joining a lottery, you confirm that all your registration information is accurate and current.</li>
+                    <li>You must notify the platform of any changes to your information during the registration period.</li>
+                    <li>Multiple registrations under different identities are strictly prohibited and will result in disqualification.</li>
+                    <li>If selected as a winner, you will have 30 days to confirm your participation and complete the Hajj requirements.</li>
+                    <li>Non-confirmation within the specified period may result in your spot being offered to the next candidate.</li>
+                    <li>You accept that the lottery results are final and binding.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
+        </div>
+    </footer>
+
+    <script>
+        function confirmJoin(lotteryName) {
+            if(confirm(`Are you sure you want to join the ${lotteryName} lottery?\n\nBy confirming, you accept all terms and conditions.`)) {
+                alert('You have successfully joined the ' + lotteryName + ' lottery!');
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

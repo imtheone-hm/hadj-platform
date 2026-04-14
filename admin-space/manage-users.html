@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Hajj Platform Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">🕌 Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
+                <li><a href="manage-users.html">Manage Users</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Manage Users</h1>
+            <p>View, monitor, and manage user accounts</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Filter and Search Section -->
+            <div class="card">
+                <h3>Search & Filter Users</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div class="form-group">
+                        <label for="searchNIN">Search by NIN:</label>
+                        <input 
+                            type="text" 
+                            id="searchNIN" 
+                            placeholder="Enter national ID"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="searchEmail">Search by Email:</label>
+                        <input 
+                            type="email" 
+                            id="searchEmail" 
+                            placeholder="Enter email address"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="filterStatus">Filter by Status:</label>
+                        <select id="filterStatus">
+                            <option value="">-- All Status --</option>
+                            <option value="active">Active</option>
+                            <option value="blocked">Blocked</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filterLottery">Filter by Lottery:</label>
+                        <select id="filterLottery">
+                            <option value="">-- All Lotteries --</option>
+                            <option value="2026">Hajj 2026</option>
+                            <option value="2025">Hajj 2025</option>
+                            <option value="2024">Hajj 2024</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-top: 1rem;" onclick="alert('Search functionality would filter the table')">Search</button>
+            </div>
+
+            <!-- Users Table -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3>User Accounts</h3>
+                <div style="overflow-x: auto;">
+                    <table style="margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>NIN</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Lotteries</th>
+                                <th>Joined Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12345678901</td>
+                                <td>Ahmed Mohammed</td>
+                                <td>ahmed.m@email.com</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>2026, 2025</td>
+                                <td>March 28, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Ahmed Mohammed')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678902</td>
+                                <td>Fatima Hassan</td>
+                                <td>fatima.h@email.com</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>2026</td>
+                                <td>April 2, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Fatima Hassan')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678903</td>
+                                <td>Ali Ibrahim</td>
+                                <td>ali.i@email.com</td>
+                                <td><span class="badge badge-danger">Blocked</span></td>
+                                <td>2026</td>
+                                <td>March 15, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Ali Ibrahim')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678904</td>
+                                <td>Aisha Khalid</td>
+                                <td>aisha.k@email.com</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>2026, 2025, 2024</td>
+                                <td>February 10, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Aisha Khalid')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678905</td>
+                                <td>Omar Abdullah</td>
+                                <td>omar.a@email.com</td>
+                                <td><span class="badge badge-warning">Suspended</span></td>
+                                <td>2026</td>
+                                <td>April 5, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Omar Abdullah')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678906</td>
+                                <td>Maryam Ali</td>
+                                <td>maryam.a@email.com</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>2026</td>
+                                <td>April 8, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Maryam Ali')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678907</td>
+                                <td>Hassan Karim</td>
+                                <td>hassan.k@email.com</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>2026, 2025</td>
+                                <td>March 22, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Hassan Karim')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12345678908</td>
+                                <td>Leila Rashid</td>
+                                <td>leila.r@email.com</td>
+                                <td><span class="badge badge-danger">Blocked</span></td>
+                                <td>2025</td>
+                                <td>January 30, 2026</td>
+                                <td>
+                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="viewUserDetails('Leila Rashid')">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-secondary" style="margin: 0 0.25rem;">← Previous</button>
+                    <button class="btn btn-primary" style="margin: 0 0.25rem;">1</button>
+                    <button class="btn btn-secondary" style="margin: 0 0.25rem;">2</button>
+                    <button class="btn btn-secondary" style="margin: 0 0.25rem;">3</button>
+                    <button class="btn btn-secondary" style="margin: 0 0.25rem;">Next →</button>
+                </div>
+            </div>
+
+            <!-- User Details Modal -->
+            <div id="userModal" style="display: none; margin-top: 2rem;">
+                <section class="card">
+                    <button onclick="closeUserDetails()" style="float: right;" class="btn btn-secondary">Close</button>
+                    <h2 id="userModalTitle">User Details</h2>
+                    
+                    <div id="userModalContent" style="margin-top: 1.5rem;">
+                        <!-- Content populated by JavaScript -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                        <button id="blockUserBtn" class="btn btn-danger" onclick="blockUser()">Block User</button>
+                        <button id="unblockUserBtn" class="btn btn-primary" onclick="unblockUser()" style="display: none;">Unblock User</button>
+                        <button id="deleteUserBtn" class="btn btn-danger" onclick="deleteUser()">Delete Account</button>
+                        <button class="btn btn-secondary" onclick="alert('Send message functionality')">Send Message</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
+        </div>
+    </footer>
+
+    <script>
+        let selectedUser = null;
+
+        const userData = {
+            'Ahmed Mohammed': {
+                nin: '12345678901',
+                name: 'Ahmed Mohammed',
+                email: 'ahmed.m@email.com',
+                phone: '+20 100 1234567',
+                status: 'Active',
+                joinedDate: 'March 28, 2026',
+                lotteries: ['Hajj 2026', 'Hajj 2025'],
+                address: '123 Main Street, Cairo, Egypt',
+                blocked: false
+            },
+            'Ali Ibrahim': {
+                nin: '12345678903',
+                name: 'Ali Ibrahim',
+                email: 'ali.i@email.com',
+                phone: '+20 100 7654321',
+                status: 'Blocked',
+                joinedDate: 'March 15, 2026',
+                lotteries: ['Hajj 2026'],
+                address: '456 Oak Avenue, Alexandria, Egypt',
+                blocked: true
+            },
+            'Fatima Hassan': {
+                nin: '12345678902',
+                name: 'Fatima Hassan',
+                email: 'fatima.h@email.com',
+                phone: '+20 100 2222222',
+                status: 'Active',
+                joinedDate: 'April 2, 2026',
+                lotteries: ['Hajj 2026'],
+                address: '789 Pine Road, Giza, Egypt',
+                blocked: false
+            },
+            'Aisha Khalid': {
+                nin: '12345678904',
+                name: 'Aisha Khalid',
+                email: 'aisha.k@email.com',
+                phone: '+20 100 3333333',
+                status: 'Active',
+                joinedDate: 'February 10, 2026',
+                lotteries: ['Hajj 2026', 'Hajj 2025', 'Hajj 2024'],
+                address: '321 Elm Street, Suez, Egypt',
+                blocked: false
+            },
+            'Omar Abdullah': {
+                nin: '12345678905',
+                name: 'Omar Abdullah',
+                email: 'omar.a@email.com',
+                phone: '+20 100 4444444',
+                status: 'Suspended',
+                joinedDate: 'April 5, 2026',
+                lotteries: ['Hajj 2026'],
+                address: '654 Maple Drive, Mansoura, Egypt',
+                blocked: false
+            },
+            'Maryam Ali': {
+                nin: '12345678906',
+                name: 'Maryam Ali',
+                email: 'maryam.a@email.com',
+                phone: '+20 100 5555555',
+                status: 'Active',
+                joinedDate: 'April 8, 2026',
+                lotteries: ['Hajj 2026'],
+                address: '987 Birch Lane, Tanta, Egypt',
+                blocked: false
+            },
+            'Hassan Karim': {
+                nin: '12345678907',
+                name: 'Hassan Karim',
+                email: 'hassan.k@email.com',
+                phone: '+20 100 6666666',
+                status: 'Active',
+                joinedDate: 'March 22, 2026',
+                lotteries: ['Hajj 2026', 'Hajj 2025'],
+                address: '123 Cedar Court, Cairo, Egypt',
+                blocked: false
+            },
+            'Leila Rashid': {
+                nin: '12345678908',
+                name: 'Leila Rashid',
+                email: 'leila.r@email.com',
+                phone: '+20 100 7777777',
+                status: 'Blocked',
+                joinedDate: 'January 30, 2026',
+                lotteries: ['Hajj 2025'],
+                address: '456 Walnut Way, Port Said, Egypt',
+                blocked: true
+            }
+        };
+
+        function viewUserDetails(userName) {
+            selectedUser = userData[userName];
+            const modal = document.getElementById('userModal');
+            const title = document.getElementById('userModalTitle');
+            const content = document.getElementById('userModalContent');
+            const blockBtn = document.getElementById('blockUserBtn');
+            const unblockBtn = document.getElementById('unblockUserBtn');
+
+            title.textContent = `${selectedUser.name} - User Details`;
+            content.innerHTML = `
+                <table style="width: 100%;">
+                    <tr>
+                        <td><strong>National ID (NIN):</strong></td>
+                        <td>${selectedUser.nin}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Full Name:</strong></td>
+                        <td>${selectedUser.name}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email:</strong></td>
+                        <td>${selectedUser.email}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone:</strong></td>
+                        <td>${selectedUser.phone}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address:</strong></td>
+                        <td>${selectedUser.address}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Account Status:</strong></td>
+                        <td><span class="badge ${selectedUser.blocked ? 'badge-danger' : 'badge-success'}">${selectedUser.blocked ? 'Blocked' : 'Active'}</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Joined Date:</strong></td>
+                        <td>${selectedUser.joinedDate}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lotteries Joined:</strong></td>
+                        <td>${selectedUser.lotteries.join(', ')}</td>
+                    </tr>
+                </table>
+            `;
+
+            if (selectedUser.blocked) {
+                blockBtn.style.display = 'none';
+                unblockBtn.style.display = 'block';
+            } else {
+                blockBtn.style.display = 'block';
+                unblockBtn.style.display = 'none';
+            }
+
+            modal.style.display = 'block';
+            modal.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeUserDetails() {
+            document.getElementById('userModal').style.display = 'none';
+        }
+
+        function blockUser() {
+            if(confirm(`Are you sure you want to block ${selectedUser.name}?\n\nThis user will no longer be able to access their account.`)) {
+                selectedUser.blocked = true;
+                alert(`${selectedUser.name} has been blocked successfully.`);
+                closeUserDetails();
+            }
+        }
+
+        function unblockUser() {
+            if(confirm(`Are you sure you want to unblock ${selectedUser.name}?\n\nThis user will be able to access their account again.`)) {
+                selectedUser.blocked = false;
+                alert(`${selectedUser.name} has been unblocked successfully.`);
+                closeUserDetails();
+            }
+        }
+
+        function deleteUser() {
+            if(confirm(`Are you sure you want to delete ${selectedUser.name}'s account?\n\nThis action cannot be undone. All their data will be permanently deleted.`)) {
+                if(confirm('This is your final confirmation. Delete account?')) {
+                    alert(`${selectedUser.name}'s account has been deleted.`);
+                    closeUserDetails();
+                    location.reload();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

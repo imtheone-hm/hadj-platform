@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Hajj Platform</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">🕌 Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="join-lottery.html">Join Lottery</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>My Profile</h1>
+            <p>View and manage your account information</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="form-container" style="max-width: 900px;">
+                <form id="profileForm">
+                    <!-- Personal Information -->
+                    <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+                        <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Personal Information</legend>
+                        
+                        <div class="form-group">
+                            <label for="nin">Numéro d'identification national (NIN)</label>
+                            <input 
+                                type="text" 
+                                id="nin" 
+                                value="12345678901"
+                                readonly
+                                style="background-color: #f0f0f0;">
+                            <small style="display: block; color: #666; margin-top: 0.5rem;">This field cannot be changed</small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name (Prénom)</label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    value="Ahmed"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name (Nom)</label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    value="Mohammed"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input 
+                                type="date" 
+                                id="dob" 
+                                value="1985-03-15"
+                            >
+                        </div>
+                    </fieldset>
+
+                    <!-- Family Information -->
+                    <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+                        <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Family Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fatherName">Father's Name</label>
+                                <input 
+                                    type="text" 
+                                    id="fatherName" 
+                                    value="Mohammed Hassan"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="grandfatherName">Grandfather's Name</label>
+                                <input 
+                                    type="text" 
+                                    id="grandfatherName" 
+                                    value="Hassan Ibrahim"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="motherName">Mother's Name</label>
+                                <input 
+                                    type="text" 
+                                    id="motherName" 
+                                    value="Fatima"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="motherLastName">Mother's Last Name</label>
+                                <input 
+                                    type="text" 
+                                    id="motherLastName" 
+                                    value="Ahmed"
+                                >
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Contact Information -->
+                    <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+                        <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Contact Information</legend>
+                        
+                        <div class="form-group">
+                            <label for="address">Physical Address</label>
+                            <textarea 
+                                id="address" 
+                                rows="3"
+                            >123 Main Street, Apt 4B
+Cairo, Egypt 11000</textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    value="ahmed.mohammed@email.com"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    value="+20 100 1234567"
+                                >
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Account Security -->
+                    <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+                        <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Account Security</legend>
+                        
+                        <div class="form-group">
+                            <label for="lastPasswordChange">Last Password Change</label>
+                            <input 
+                                type="text" 
+                                value="April 5, 2026"
+                                readonly
+                                style="background-color: #f0f0f0;">
+                        </div>
+
+                        <button type="button" class="btn btn-secondary" onclick="alert('Password change functionality would open a modal')">
+                            Change Password
+                        </button>
+                    </fieldset>
+
+                    <!-- Account Status -->
+                    <fieldset style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+                        <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--primary-color);">Account Status</legend>
+                        
+                        <p><strong>Account Status:</strong> <span class="badge badge-success">Active</span></p>
+                        <p style="margin-top: 0.5rem;"><strong>Account Created:</strong> March 28, 2026</p>
+                        <p style="margin-top: 0.5rem;"><strong>Last Login:</strong> April 10, 2026 at 2:30 PM</p>
+                    </fieldset>
+
+                    <!-- Form Actions -->
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" onclick="location.reload()">Cancel</button>
+                    </div>
+                </form>
+
+                <!-- Danger Zone -->
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--danger-color);">
+                    <h3 style="color: var(--danger-color);">Danger Zone</h3>
+                    <div style="background-color: #fff3cd; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                        <p style="margin: 0 0 1rem 0;">
+                            <strong>Delete Account:</strong> Permanently delete your account and all associated data. This action cannot be undone.
+                        </p>
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Profile updated successfully!');
+        });
+
+        function confirmDelete() {
+            if(confirm('Are you absolutely sure you want to delete your account? This action cannot be undone. All your data will be permanently deleted.')) {
+                if(confirm('This is your final confirmation. Delete account?')) {
+                    alert('Your account has been deleted. Redirecting...');
+                    window.location.href = '../index.html';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Lotteries - Hajj Platform Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">🕌 Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
+                <li><a href="manage-users.html">Manage Users</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Manage Lotteries</h1>
+            <p>Create, view, and manage all Hajj lotteries</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Create New Lottery Section -->
+            <div class="card">
+                <h2>Create New Lottery</h2>
+                <form id="createLotteryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lotteryYear">Lottery Year *</label>
+                            <input 
+                                type="number" 
+                                id="lotteryYear" 
+                                name="lotteryYear" 
+                                required
+                                min="2026"
+                                max="2050"
+                                placeholder="e.g., 2027"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="lotteryDate">Lottery Date *</label>
+                            <input 
+                                type="date" 
+                                id="lotteryDate" 
+                                name="lotteryDate" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numWinners">Number of Winners *</label>
+                            <input 
+                                type="number" 
+                                id="numWinners" 
+                                name="numWinners" 
+                                required
+                                min="1"
+                                placeholder="e.g., 5000"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Registration Start Date *</label>
+                            <input 
+                                type="date" 
+                                id="startDate" 
+                                name="startDate" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">Registration End Date *</label>
+                        <input 
+                            type="date" 
+                            id="endDate" 
+                            name="endDate" 
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create Lottery</button>
+                </form>
+            </div>
+
+            <!-- Existing Lotteries -->
+            <div class="card" style="margin-top: 2rem;">
+                <h2>Existing Lotteries</h2>
+
+                <!-- Hajj 2026 -->
+                <div style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="margin: 0;">Hajj 2026 Lottery</h3>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary" onclick="viewDetails(2026)">View Details</button>
+                            <button class="btn btn-primary" style="margin-left: 0.5rem;" onclick="startSelection(2026)">Launch Selection</button>
+                        </div>
+                    </div>
+                    
+                    <table style="width: 100%; font-size: 0.95rem;">
+                        <tr>
+                            <td><strong>Lottery Date:</strong></td>
+                            <td>August 15, 2025</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Winners:</strong></td>
+                            <td>5,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registration Period:</strong></td>
+                            <td>January 1, 2025 - December 31, 2025</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Current Participants:</strong></td>
+                            <td>78,500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status:</strong></td>
+                            <td>Registration Open</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Hajj 2025 -->
+                <div style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="margin: 0;">Hajj 2025 Lottery</h3>
+                            <span class="badge badge-success">Completed</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary" onclick="viewDetails(2025)">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <table style="width: 100%; font-size: 0.95rem;">
+                        <tr>
+                            <td><strong>Lottery Date:</strong></td>
+                            <td>August 10, 2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Winners:</strong></td>
+                            <td>5,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registration Period:</strong></td>
+                            <td>January 1, 2024 - July 31, 2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Participants:</strong></td>
+                            <td>112,300</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status:</strong></td>
+                            <td>Selection Process Completed</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Hajj 2024 -->
+                <div style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 4px;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="margin: 0;">Hajj 2024 Lottery</h3>
+                            <span class="badge badge-success">Completed</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary" onclick="viewDetails(2024)">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <table style="width: 100%; font-size: 0.95rem;">
+                        <tr>
+                            <td><strong>Lottery Date:</strong></td>
+                            <td>August 12, 2023</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Winners:</strong></td>
+                            <td>5,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registration Period:</strong></td>
+                            <td>January 1, 2023 - July 31, 2023</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Participants:</strong></td>
+                            <td>98,700</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status:</strong></td>
+                            <td>Selection Process Completed</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Lottery Details Modal -->
+            <div id="detailsModal" style="display: none; margin-top: 2rem;">
+                <section class="card">
+                    <button onclick="closeDetails()" style="float: right;" class="btn btn-secondary">Close</button>
+                    <h2 id="detailsTitle">Lottery Details</h2>
+                    
+                    <div id="detailsContent" style="margin-top: 1.5rem;">
+                        <!-- Details populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hajj Platform. All rights reserved.</p>
+            <p>For support, contact us at: support@hajjplatform.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('createLotteryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const year = document.getElementById('lotteryYear').value;
+            alert(`Hajj ${year} lottery has been created successfully!`);
+            this.reset();
+        });
+
+        const lotteryDetails = {
+            2026: {
+                year: 2026,
+                date: 'August 15, 2025',
+                winners: 5000,
+                startDate: 'January 1, 2025',
+                endDate: 'December 31, 2025',
+                participants: 78500,
+                status: 'Active'
+            },
+            2025: {
+                year: 2025,
+                date: 'August 10, 2024',
+                winners: 5000,
+                startDate: 'January 1, 2024',
+                endDate: 'July 31, 2024',
+                participants: 112300,
+                status: 'Completed',
+                winnersSelected: 5000
+            },
+            2024: {
+                year: 2024,
+                date: 'August 12, 2023',
+                winners: 5000,
+                startDate: 'January 1, 2023',
+                endDate: 'July 31, 2023',
+                participants: 98700,
+                status: 'Completed',
+                winnersSelected: 5000
+            }
+        };
+
+        function viewDetails(year) {
+            const lottery = lotteryDetails[year];
+            const modal = document.getElementById('detailsModal');
+            const title = document.getElementById('detailsTitle');
+            const content = document.getElementById('detailsContent');
+
+            title.textContent = `Hajj ${year} Lottery Details`;
+            content.innerHTML = `
+                <table style="width: 100%;">
+                    <tr>
+                        <td><strong>Lottery Year:</strong></td>
+                        <td>${lottery.year}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lottery Date:</strong></td>
+                        <td>${lottery.date}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Number of Winners:</strong></td>
+                        <td>${lottery.winners}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Registration Start Date:</strong></td>
+                        <td>${lottery.startDate}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Registration End Date:</strong></td>
+                        <td>${lottery.endDate}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Participants:</strong></td>
+                        <td>${lottery.participants}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status:</strong></td>
+                        <td>${lottery.status}</td>
+                    </tr>
+                    ${lottery.winnersSelected ? `<tr>
+                        <td><strong>Winners Selected:</strong></td>
+                        <td>${lottery.winnersSelected}</td>
+                    </tr>` : ''}
+                </table>
+            `;
+
+            modal.style.display = 'block';
+            modal.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeDetails() {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
+
+        function startSelection(year) {
+            if(confirm(`Are you sure you want to launch the selection process for Hajj ${year}?\n\nThis action will begin the random draw of winners.`)) {
+                alert(`Selection process for Hajj ${year} has been initiated. Please wait as the system generates the winner list...`);
+            }
+        }
+    </script>
+</body>
+</html>
