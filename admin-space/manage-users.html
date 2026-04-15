@@ -15,7 +15,7 @@
                 <li><a href="index.html">Dashboard</a></li>
                 <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
                 <li><a href="manage-users.html">Manage Users</a></li>
-                <li><a href="../index.html">Logout</a></li>
+                <li><a href="../public space/index.html">Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -182,7 +182,6 @@
                     </table>
                 </div>
 
-                <!-- Pagination -->
                 <div style="text-align: center; margin-top: 2rem;">
                     <button class="btn btn-secondary" style="margin: 0 0.25rem;">← Previous</button>
                     <button class="btn btn-primary" style="margin: 0 0.25rem;">1</button>
@@ -192,18 +191,16 @@
                 </div>
             </div>
 
-            <!-- User Details Modal -->
             <div id="userModal" style="display: none; margin-top: 2rem;">
                 <section class="card">
                     <button onclick="closeUserDetails()" style="float: right;" class="btn btn-secondary">Close</button>
                     <h2 id="userModalTitle">User Details</h2>
                     
                     <div id="userModalContent" style="margin-top: 1.5rem;">
-                        <!-- Content populated by JavaScript -->
+                    
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                    <div>
                         <button id="blockUserBtn" class="btn btn-danger" onclick="blockUser()">Block User</button>
                         <button id="unblockUserBtn" class="btn btn-primary" onclick="unblockUser()" style="display: none;">Unblock User</button>
                         <button id="deleteUserBtn" class="btn btn-danger" onclick="deleteUser()">Delete Account</button>
@@ -214,7 +211,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+   
     <footer>
         <div class="container">
            
