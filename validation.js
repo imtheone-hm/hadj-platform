@@ -2,8 +2,8 @@
 
 /**
  * Affiche un message d'erreur sous un champ.
- * @param {HTMLElement} input  - Le champ concerné
- * @param {string}      msg    - Le texte d'erreur
+ param {HTMLElement} input  
+ param {string}      msg    
  */
 function showError(input, msg) {
   clearError(input);                        // evite les doublons
@@ -226,19 +226,19 @@ function attachBlurValidation(input, validator, ...args) {
 (function injectValidationStyles() {
   const style = document.createElement('style');
   style.textContent = `
-    /* Champ en erreur */
+  
     .input-error {
       border-color: #c0392b !important;
       box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15) !important;
       background-color: #fff8f8 !important;
     }
-    /* Champ valide */
+    
     .input-ok {
       border-color: #2d6a4f !important;
       box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.12) !important;
       background-color: #f4fdf7 !important;
     }
-    /* Message d'erreur sous le champ */
+  
     .error-msg {
       display: block;
       margin-top: 5px;
@@ -252,7 +252,7 @@ function attachBlurValidation(input, validator, ...args) {
       from { opacity: 0; transform: translateY(-4px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    /* Indicateur de force du mot de passe */
+  
     .pwd-strength {
       margin-top: 6px;
       height: 4px;
@@ -268,7 +268,7 @@ function attachBlurValidation(input, validator, ...args) {
       margin-top: 3px;
       color: var(--text-muted);
     }
-    /* Compteur de caractères */
+
     .char-counter {
       display: block;
       text-align: right;
@@ -276,7 +276,7 @@ function attachBlurValidation(input, validator, ...args) {
       color: var(--text-muted);
       margin-top: 4px;
     }
-    /* Alerte de succès / erreur globale (haut de formulaire) */
+
     .form-alert {
       padding: 14px 20px;
       border-radius: 8px;
@@ -302,14 +302,11 @@ function attachBlurValidation(input, validator, ...args) {
   document.head.appendChild(style);
 })();
 
-//INDICATEUR DE FORCE DU MOT DE PASSE
-
-// Attache un indicateur visuel de force sous un champ password.
 
 function attachPasswordStrength(input) {
   if (!input) return;
 
-  // Crée la barre + le label
+  //tcriyi la barre
   const bar = document.createElement('div');
   bar.className = 'pwd-strength';
   const label = document.createElement('span');
