@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Hajj Platform Admin</title>
+    <link rel="stylesheet" href="../public space/styles.css">
+    <script src="../validation.js" defer></script>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="../public space/index.html" class="logo"> Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
+                <li><a href="manage-users.html">Manage Users</a></li>
+                <li><a href="../public space/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Manage Users</h1>
+            <p>Validate, block or delete user accounts</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- ── Recherche utilisateur ── -->
+            <div class="card">
+                <h2>Search Users</h2>
+                <form id="searchForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="searchNIN">Search by NIN</label>
+                            <input type="text" id="searchNIN" name="searchNIN"
+                                   placeholder="18 chiffres" maxlength="18" inputmode="numeric">
+                        </div>
+                        <div class="form-group">
+                            <label for="searchEmail">Search by Email</label>
+                            <input type="email" id="searchEmail" name="searchEmail"
+                                   placeholder="nom@exemple.com">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+
+            <!-- ── Liste des utilisateurs ── -->
+            <div class="card" style="margin-top:2rem;">
+                <h2>Pending Validation</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NIN</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Registration Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- Données injectées par JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ── Modal : raison de blocage ── -->
+            <div id="blockModal" style="display:none; margin-top:2rem;">
+                <div class="card">
+                    <h3>Block User Account</h3>
+                    <form id="blockForm" novalidate>
+                        <input type="hidden" id="blockUserId">
+                        <div class="form-group">
+                            <label for="blockReason">Reason for Blocking *</label>
+                            <textarea id="blockReason" name="blockReason" required rows="3"
+                                      placeholder="Décrivez la raison du blocage (min 20 caractères)..."></textarea>
+                        </div>
+                        <div style="display:flex; gap:1rem;">
+                            <button type="submit" class="btn btn-danger">Confirm Block</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeBlockModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>For support, contact us at: hajj@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="../public space/validation.js"></script>
+    <script>
+        /* ──────────────────────────────────────────────
+           ADMIN — MANAGE USERS — Validation JS
+           ────────────────────────────────────────────── */
+
+        /* ── Données mock ── */
+        const users = [
+            { id: 1, nin: '123456789012345678', name: 'Karim Bensalem',  email: 'karim.b@email.com',  date: '2026-04-01', status: 'pending' },
+            { id: 2, nin: '234567890123456789', name: 'Amina Khelil',    email: 'amina.k@email.com',  date: '2026-04-03', status: 'pending' },
+            { id: 3, nin: '345678901234567890', name: 'Youcef Merabet',  email: 'youcef.m@email.com', date: '2026-04-05', status: 'active'  },
+            { id: 4, nin: '456789012345678901', name: 'Sara Boualem',    email: 'sara.b@email.com',   date: '2026-04-06', status: 'pending' },
+        ];
+
+        /* ── Rendu du tableau ── */
+        function renderTable(data) {
+            const tbody = document.getElementById('userTableBody');
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-muted);">Aucun utilisateur trouvé.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = data.map(u => `
+                <tr>
+                    <td><code>${u.nin}</code></td>
+                    <td>${u.name}</td>
+                    <td>${u.email}</td>
+                    <td>${u.date}</td>
+                    <td style="display:flex;gap:.5rem;flex-wrap:wrap;">
+                        ${u.status === 'pending'
+                            ? `<button class="btn btn-primary" style="padding:6px 12px;font-size:13px;"
+                                onclick="validateUser(${u.id})">✓ Validate</button>`
+                            : `<span class="badge badge-success">Validated</span>`}
+                        <button class="btn btn-secondary" style="padding:6px 12px;font-size:13px;"
+                            onclick="openBlockModal(${u.id})">🔒 Block</button>
+                        <button class="btn btn-danger" style="padding:6px 12px;font-size:13px;"
+                            onclick="deleteUser(${u.id})">🗑 Delete</button>
+                    </td>
+                </tr>`).join('');
+        }
+
+        renderTable(users);
+
+        /* ── Actions utilisateur ── */
+        function validateUser(id) {
+            const u = users.find(u => u.id === id);
+            if (!u) return;
+            if (confirm(`Valider le compte de ${u.name} (NIN: ${u.nin}) ?`)) {
+                u.status = 'active';
+                renderTable(users);
+            }
+        }
+
+        function deleteUser(id) {
+            const u = users.find(u => u.id === id);
+            if (!u) return;
+            if (confirm(`Supprimer définitivement le compte de ${u.name} ?\nCette action est irréversible.`)) {
+                users.splice(users.indexOf(u), 1);
+                renderTable(users);
+            }
+        }
+
+        function openBlockModal(id) {
+            document.getElementById('blockUserId').value = id;
+            document.getElementById('blockReason').value = '';
+            clearError(document.getElementById('blockReason'));
+            const modal = document.getElementById('blockModal');
+            modal.style.display = 'block';
+            modal.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeBlockModal() {
+            document.getElementById('blockModal').style.display = 'none';
+        }
+
+        /* ── Validation : raison de blocage (min 20 chars) ── */
+        function validateBlockReason(input) {
+            if (!validateRequired(input, 'La raison du blocage')) return false;
+            if (input.value.trim().length < 20) {
+                showError(input, 'La raison doit contenir au moins 20 caractères.');
+                return false;
+            }
+            markOk(input);
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            attachBlurValidation(document.getElementById('blockReason'), validateBlockReason);
+        });
+
+        document.getElementById('blockForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const reasonInput = document.getElementById('blockReason');
+            if (!validateBlockReason(reasonInput)) return;
+
+            const id = parseInt(document.getElementById('blockUserId').value, 10);
+            const u  = users.find(u => u.id === id);
+            if (u) {
+                alert(`Compte de ${u.name} bloqué.\nRaison : ${reasonInput.value.trim()}`);
+                closeBlockModal();
+            }
+        });
+
+        /* ── Validation de la recherche ── */
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nin   = document.getElementById('searchNIN').value.trim();
+            const email = document.getElementById('searchEmail').value.trim();
+
+            // Au moins un champ doit être rempli
+            if (!nin && !email) {
+                showFormAlert(this, 'Veuillez saisir un NIN ou un email pour effectuer la recherche.', 'error');
+                return;
+            }
+
+            // Validation du NIN s'il est saisi
+            if (nin && !/^\d{18}$/.test(nin)) {
+                showError(document.getElementById('searchNIN'), 'Le NIN doit contenir 18 chiffres.');
+                return;
+            }
+
+            // Validation de l'email s'il est saisi
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+                showError(document.getElementById('searchEmail'), 'Format d\'email invalide.');
+                return;
+            }
+
+            // Filtrage
+            const results = users.filter(u =>
+                (!nin   || u.nin.includes(nin)) &&
+                (!email || u.email.toLowerCase().includes(email.toLowerCase()))
+            );
+
+            renderTable(results);
+            showFormAlert(this, `${results.length} résultat(s) trouvé(s).`, results.length ? 'success' : 'error');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hajj Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../validation.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo"> Hajj Platform</a>
+            <h1 style="text-align: center;">Login Page</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Login to Your Account</h1>
+            <p>Access your Hajj Platform profile</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <form id="loginForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required
+                               placeholder="Entrez votre adresse email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required
+                               placeholder="Entrez votre mot de passe">
+                    </div>
+
+                    <div class="form-group" style="display:flex; justify-content:space-between; align-items:center;">
+                        <label style="display:flex; gap:.5rem; align-items:center; cursor:pointer;">
+                            <input type="checkbox" id="remember" name="remember">
+                            Remember me
+                        </label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+
+                <div>
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>For support, contact us at: hajj@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="validation.js"></script>
+    <script>
+        /* ──────────────────────────────────────────────
+           LOGIN PAGE — Validation JS
+           ────────────────────────────────────────────── */
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Validation blur
+            attachBlurValidation(document.getElementById('email'),    validateEmail);
+            attachBlurValidation(document.getElementById('password'), validateRequired, 'Le mot de passe');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const emailInput    = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            const valid = [
+                validateEmail(emailInput),
+                validateRequired(passwordInput, 'Le mot de passe'),
+            ].every(Boolean);
+
+            if (!valid) {
+                showFormAlert(this, 'Veuillez corriger les erreurs avant de vous connecter.', 'error');
+                return;
+            }
+
+            // Simulation de connexion (sera remplacé par PHP en séance 4)
+            showFormAlert(this, 'Connexion réussie ! Redirection...', 'success');
+            setTimeout(() => {
+                window.location.href = '../user-space/index.html';
+            }, 1200);
+        });
+    </script>
+</body>
+</html>

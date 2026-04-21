@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Hajj Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../validation.js" defer></script> 
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Hajj Platform</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Create Your Account</h1>
+            <p>Join the Hajj Platform community</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- Sélection du rôle -->
+            <div class="form-container" id="roleSelection">
+                <h2>Choose Your Account Type</h2>
+                <p>Select whether you want to sign up as a regular user or an administrator</p>
+                <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 2rem;">
+                    <button type="button" class="btn btn-primary" onclick="selectRole('user')" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                        Sign Up as User
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="selectRole('admin')" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                        Sign Up as Admin
+                    </button>
+                </div>
+            </div>
+
+            <!-- Formulaire d'inscription -->
+            <div class="form-container" id="formContainer" style="display: none;">
+                <div style="margin-bottom: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="backToRoleSelection()">← Back to Role Selection</button>
+                </div>
+
+                <form id="signupForm" novalidate>
+
+                    <!-- ── Informations personnelles ── -->
+                    <fieldset>
+                        <legend>Personal Information</legend>
+
+                        <div class="form-group">
+                            <label for="nin">Numéro d'identification national (NIN) *</label>
+                            <input type="text" id="nin" name="nin" required
+                                   placeholder="18 chiffres — ex : 123456789012345678"
+                                   maxlength="18" inputmode="numeric">
+                            <small>18 chiffres, sans espaces</small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name (Prénom) *</label>
+                                <input type="text" id="firstName" name="firstName" required
+                                       placeholder="Votre prénom">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name (Nom) *</label>
+                                <input type="text" id="lastName" name="lastName" required
+                                       placeholder="Votre nom">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" required>
+                            <small>Vous devez avoir au moins 18 ans</small>
+                        </div>
+                    </fieldset>
+
+                    <!-- ── Informations familiales ── -->
+                    <fieldset>
+                        <legend>Family Information</legend>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fatherName">Father's Name *</label>
+                                <input type="text" id="fatherName" name="fatherName" required
+                                       placeholder="Prénom du père">
+                            </div>
+                            <div class="form-group">
+                                <label for="grandfatherName">Grandfather's Name *</label>
+                                <input type="text" id="grandfatherName" name="grandfatherName" required
+                                       placeholder="Prénom du grand-père">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="motherName">Mother's Name *</label>
+                                <input type="text" id="motherName" name="motherName" required
+                                       placeholder="Prénom de la mère">
+                            </div>
+                            <div class="form-group">
+                                <label for="motherLastName">Mother's Last Name *</label>
+                                <input type="text" id="motherLastName" name="motherLastName" required
+                                       placeholder="Nom de la mère">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- ── Coordonnées ── -->
+                    <fieldset>
+                        <legend>Contact Information</legend>
+
+                        <div class="form-group">
+                            <label for="address">Physical Address *</label>
+                            <textarea id="address" name="address" required rows="3"
+                                      placeholder="Adresse complète (au moins 10 caractères)"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required
+                                       placeholder="nom@exemple.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required
+                                       placeholder="+213 555 123 456">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- ── Sécurité du compte ── -->
+                    <fieldset>
+                        <legend>Account Security</legend>
+
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" name="password" required
+                                   placeholder="Créer un mot de passe fort" minlength="8">
+                            <small>Min 8 caractères, une lettre et un chiffre</small>
+                            <!-- La barre de force est injectée ici par JS -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password *</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required
+                                   placeholder="Confirmez votre mot de passe">
+                        </div>
+                    </fieldset>
+
+                    <!-- ── Conditions générales ── -->
+                    <div class="form-group">
+                        <label style="display:flex; gap:.6rem; align-items:flex-start; cursor:pointer;">
+                            <input type="checkbox" id="terms" name="terms" required style="margin-top:3px;">
+                            <span>
+                                J'accepte les <a href="#">Conditions Générales</a> et confirme que toutes
+                                les informations fournies sont exactes et véridiques.
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>For support, contact us at: hajj@gmail.com</p>
+        </div>
+    </footer>
+
+    <!-- Fichier de validation commun -->
+    <script src="validation.js"></script>
+    <script>
+        /* ──────────────────────────────────────────────
+           SIGNUP PAGE — Logique JS spécifique
+           ────────────────────────────────────────────── */
+
+        let selectedRole = null;
+
+        /* ── Sélection du rôle ── */
+        function selectRole(role) {
+            selectedRole = role;
+            document.getElementById('roleSelection').style.display = 'none';
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function backToRoleSelection() {
+            selectedRole = null;
+            document.getElementById('roleSelection').style.display = 'block';
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('roleSelection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* ── Attachement des validations en temps réel (blur) ── */
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Indicateur de force du mot de passe
+            attachPasswordStrength(document.getElementById('password'));
+
+            // Validations sur perte de focus (blur)
+            attachBlurValidation(document.getElementById('nin'),              validateNIN);
+            attachBlurValidation(document.getElementById('firstName'),        validateName, 'Le prénom');
+            attachBlurValidation(document.getElementById('lastName'),         validateName, 'Le nom');
+            attachBlurValidation(document.getElementById('dob'),              validateDOB);
+            attachBlurValidation(document.getElementById('fatherName'),       validateName, 'Le prénom du père');
+            attachBlurValidation(document.getElementById('grandfatherName'),  validateName, 'Le prénom du grand-père');
+            attachBlurValidation(document.getElementById('motherName'),       validateName, 'Le prénom de la mère');
+            attachBlurValidation(document.getElementById('motherLastName'),   validateName, 'Le nom de la mère');
+            attachBlurValidation(document.getElementById('address'),          validateAddress);
+            attachBlurValidation(document.getElementById('email'),            validateEmail);
+            attachBlurValidation(document.getElementById('phone'),            validatePhone);
+            attachBlurValidation(document.getElementById('password'),         validatePassword);
+
+            // Revalider la confirmation quand le mot de passe change
+            document.getElementById('password').addEventListener('input', () => {
+                const confirm = document.getElementById('confirmPassword');
+                if (confirm.value !== '') clearError(confirm);
+            });
+            attachBlurValidation(
+                document.getElementById('confirmPassword'),
+                validatePasswordConfirm,
+                document.getElementById('password')
+            );
+        });
+
+        /* ── Soumission du formulaire ── */
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validation complète de tous les champs au moment de la soumission
+            const valid = [
+                validateNIN(document.getElementById('nin')),
+                validateName(document.getElementById('firstName'),       'Le prénom'),
+                validateName(document.getElementById('lastName'),        'Le nom'),
+                validateDOB(document.getElementById('dob')),
+                validateName(document.getElementById('fatherName'),      'Le prénom du père'),
+                validateName(document.getElementById('grandfatherName'), 'Le prénom du grand-père'),
+                validateName(document.getElementById('motherName'),      'Le prénom de la mère'),
+                validateName(document.getElementById('motherLastName'),  'Le nom de la mère'),
+                validateAddress(document.getElementById('address')),
+                validateEmail(document.getElementById('email')),
+                validatePhone(document.getElementById('phone')),
+                validatePassword(document.getElementById('password')),
+                validatePasswordConfirm(
+                    document.getElementById('confirmPassword'),
+                    document.getElementById('password')
+                ),
+                validateCheckbox(document.getElementById('terms'), 'les conditions générales'),
+            ].every(Boolean);  // true seulement si TOUT est valide
+
+            if (!valid) {
+                showFormAlert(this, 'Veuillez corriger les erreurs indiquées avant de continuer.', 'error');
+                // Fait défiler jusqu'au premier champ en erreur
+                const firstError = document.querySelector('.input-error');
+                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            // ─ Succès ─
+            showFormAlert(this, 'Compte créé avec succès ! Redirection en cours...', 'success');
+
+            setTimeout(() => {
+                if (selectedRole === 'admin') {
+                    window.location.href = '../admin-space/index.html';
+                } else {
+                    window.location.href = '../user-space/index.html';
+                }
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
