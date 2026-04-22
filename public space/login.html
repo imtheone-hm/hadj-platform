@@ -71,12 +71,9 @@
 
     <script src="validation.js"></script>
     <script>
-        /* ──────────────────────────────────────────────
-           LOGIN PAGE — Validation JS
-           ────────────────────────────────────────────── */
+       
 
         document.addEventListener('DOMContentLoaded', function () {
-            // Validation blur
             attachBlurValidation(document.getElementById('email'),    validateEmail);
             attachBlurValidation(document.getElementById('password'), validateRequired, 'Le mot de passe');
         });
@@ -97,7 +94,6 @@
                 return;
             }
 
-            // Simulation de connexion (sera remplacé par PHP en séance 4)
             showFormAlert(this, 'Connexion réussie ! Redirection...', 'success');
             setTimeout(() => {
                 window.location.href = '../user-space/index.html';

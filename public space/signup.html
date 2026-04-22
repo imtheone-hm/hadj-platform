@@ -185,16 +185,12 @@
         </div>
     </footer>
 
-    <!-- Fichier de validation commun -->
     <script src="validation.js"></script>
     <script>
-        /* ──────────────────────────────────────────────
-           SIGNUP PAGE — Logique JS spécifique
-           ────────────────────────────────────────────── */
+        
 
         let selectedRole = null;
 
-        /* ── Sélection du rôle ── */
         function selectRole(role) {
             selectedRole = role;
             document.getElementById('roleSelection').style.display = 'none';
@@ -209,13 +205,10 @@
             document.getElementById('roleSelection').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* ── Attachement des validations en temps réel (blur) ── */
         document.addEventListener('DOMContentLoaded', function () {
 
-            // Indicateur de force du mot de passe
             attachPasswordStrength(document.getElementById('password'));
 
-            // Validations sur perte de focus (blur)
             attachBlurValidation(document.getElementById('nin'),              validateNIN);
             attachBlurValidation(document.getElementById('firstName'),        validateName, 'Le prénom');
             attachBlurValidation(document.getElementById('lastName'),         validateName, 'Le nom');
@@ -229,7 +222,6 @@
             attachBlurValidation(document.getElementById('phone'),            validatePhone);
             attachBlurValidation(document.getElementById('password'),         validatePassword);
 
-            // Revalider la confirmation quand le mot de passe change
             document.getElementById('password').addEventListener('input', () => {
                 const confirm = document.getElementById('confirmPassword');
                 if (confirm.value !== '') clearError(confirm);
@@ -241,11 +233,9 @@
             );
         });
 
-        /* ── Soumission du formulaire ── */
         document.getElementById('signupForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Validation complète de tous les champs au moment de la soumission
             const valid = [
                 validateNIN(document.getElementById('nin')),
                 validateName(document.getElementById('firstName'),       'Le prénom'),
@@ -264,17 +254,15 @@
                     document.getElementById('password')
                 ),
                 validateCheckbox(document.getElementById('terms'), 'les conditions générales'),
-            ].every(Boolean);  // true seulement si TOUT est valide
+            ].every(Boolean);  
 
             if (!valid) {
                 showFormAlert(this, 'Veuillez corriger les erreurs indiquées avant de continuer.', 'error');
-                // Fait défiler jusqu'au premier champ en erreur
                 const firstError = document.querySelector('.input-error');
                 if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
             }
 
-            // ─ Succès ─
             showFormAlert(this, 'Compte créé avec succès ! Redirection en cours...', 'success');
 
             setTimeout(() => {

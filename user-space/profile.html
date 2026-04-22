@@ -34,7 +34,6 @@
             <div class="form-container" style="max-width: 900px;">
                 <form id="profileForm" novalidate>
 
-                    <!-- ── Informations personnelles ── -->
                     <fieldset>
                         <legend>Personal Information</legend>
 
@@ -110,7 +109,6 @@ Cairo, Egypt 11000</textarea>
                         </div>
                     </fieldset>
 
-                    <!-- ── Sécurité ── -->
                     <fieldset>
                         <legend>Account Security</legend>
 
@@ -124,7 +122,6 @@ Cairo, Egypt 11000</textarea>
                         </button>
                     </fieldset>
 
-                    <!-- ── Modal changement de mot de passe ── -->
                     <div id="pwdModal" style="display:none; margin-top:1.5rem;">
                         <fieldset style="border-color:var(--gold);">
                             <legend>Change Password</legend>
@@ -153,7 +150,6 @@ Cairo, Egypt 11000</textarea>
                         </fieldset>
                     </div>
 
-                    <!-- ── Statut ── -->
                     <fieldset>
                         <legend>Account Status</legend>
                         <p><strong>Status:</strong> <span class="badge badge-success">Active</span></p>
@@ -167,7 +163,6 @@ Cairo, Egypt 11000</textarea>
                     </div>
                 </form>
 
-                <!-- ── Zone de danger ── -->
                 <div style="margin-top:2.5rem; padding:1.5rem; border:2px solid #c0392b; border-radius:12px; background:#fff8f8;">
                     <h3 style="color:#7b1c1c; margin-bottom:.5rem;">⚠ Danger Zone</h3>
                     <p style="color:var(--text-secondary); margin-bottom:1rem;">
@@ -187,12 +182,9 @@ Cairo, Egypt 11000</textarea>
 
     <script src="../public space/validation.js"></script>
     <script>
-        /* ──────────────────────────────────────────────
-           USER — PROFILE — Validation JS
-           ────────────────────────────────────────────── */
+          
 
         document.addEventListener('DOMContentLoaded', function () {
-            // Validation blur sur les champs modifiables
             attachBlurValidation(document.getElementById('firstName'),       validateName, 'Le prénom');
             attachBlurValidation(document.getElementById('lastName'),        validateName, 'Le nom');
             attachBlurValidation(document.getElementById('dob'),             validateDOB);
@@ -204,11 +196,9 @@ Cairo, Egypt 11000</textarea>
             attachBlurValidation(document.getElementById('email'),           validateEmail);
             attachBlurValidation(document.getElementById('phone'),           validatePhone);
 
-            // Indicateur de force pour le nouveau mot de passe
             attachPasswordStrength(document.getElementById('newPwd'));
         });
 
-        /* ── Sauvegarde du profil ── */
         document.getElementById('profileForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -234,7 +224,6 @@ Cairo, Egypt 11000</textarea>
             showFormAlert(this, 'Profil mis à jour avec succès !', 'success');
         });
 
-        /* ── Changement de mot de passe ── */
         function openChangePassword() {
             document.getElementById('pwdModal').style.display = 'block';
         }
@@ -262,7 +251,6 @@ Cairo, Egypt 11000</textarea>
             closeChangePassword();
         });
 
-        /* ── Suppression du compte ── */
         function confirmDelete() {
             if (confirm('Êtes-vous ABSOLUMENT sûr de vouloir supprimer votre compte ?\nCette action est IRRÉVERSIBLE.')) {
                 if (confirm('Confirmation finale — supprimer le compte ?')) {
