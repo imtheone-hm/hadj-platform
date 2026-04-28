@@ -1,9 +1,5 @@
 <?php
-// includes/data_simulation.php
 
-// Simulation de la table User
-// etat_compte: 1 (actif), 2 (bloqué), 3 (en attente), 4 (supprimé)
-// role: 1 (admin), 2 (simple user)
 $users_db = [
     [
         'nin' => '123456789012345678',
@@ -25,8 +21,6 @@ $users_db = [
     ]
 ];
 
-// Simulation de la table Tirage
-// etat_tirage: 1 (planifié), 2 (effectué), 3 (inscriptions ouvertes), 4 (inscriptions fermées)
 $tirages_db = [
     [
         'id_tirage' => 1,
@@ -38,17 +32,12 @@ $tirages_db = [
     ]
 ];
 
-// Inscrits (id_inscription, nin, id_tirage, date_inscription)
 $inscrits_db = [];
 
-// Resultats (id_resultat, nin, id_tirage)
 $resultats_db = [];
 
-// Notifications (id_notification, nin, message, etat_notification)
-// etat_notification: 1 (non lue), 2 (lue)
 $notifications_db = [];
 
-// Fonction pour simuler la recherche d'un utilisateur
 function getUserByEmail($email) {
     global $users_db;
     foreach ($users_db as $user) {
