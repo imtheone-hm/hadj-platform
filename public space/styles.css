@@ -516,6 +516,15 @@ footer a:hover {
     font-size: 14px;
     letter-spacing: 0.2px;
 }
+.form-group a {
+    margin-left: 5px;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--green-deep);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
 
 .form-group input,
 .form-group textarea,
