@@ -1,5 +1,4 @@
 <?php
-// includes/session.php
 session_start();
 
 // Fonction pour vérifier si l'utilisateur est connecté
