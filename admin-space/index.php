@@ -1,4 +1,8 @@
-<!doctype html>
+<?php
+require_once '../includes/session.php';
+redirigerSiNonAutorise('admin');
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,12 +14,12 @@
   <body>
     <nav>
       <div class="container">
-        <a href="../public space/index.html" class="logo"> Hajj Platform</a>
+        <a href="../public space/index.php" class="logo"> Hajj Platform</a>
         <ul>
-          <li><a href="index.html">Dashboard</a></li>
-          <li><a href="manage-lotteries.html">Manage Lotteries</a></li>
-          <li><a href="manage-users.html">Manage Users</a></li>
-          <li><a href="../public space/index.html">Logout</a></li>
+          <li><a href="index.php">Dashboard</a></li>
+          <li><a href="manage-lotteries.php">Manage Lotteries</a></li>
+          <li><a href="manage-users.php">Manage Users</a></li>
+          <li><a href="../public space/index.php">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -60,13 +64,13 @@
         <div class="card">
           <h2>Quick Administrative Actions</h2>
           <div>
-            <a href="manage-lotteries.html" class="btn btn-primary"
+            <a href="manage-lotteries.php" class="btn btn-primary"
               >Create New Lottery</a
             >
-            <a href="manage-lotteries.html" class="btn btn-primary"
+            <a href="manage-lotteries.php" class="btn btn-primary"
               >View All Lotteries</a
             >
-            <a href="manage-users.html" class="btn btn-primary"
+            <a href="manage-users.php" class="btn btn-primary"
               >View All Users</a
             >
             <button
@@ -106,19 +110,19 @@
                 <td>Hajj 2026</td>
                 <td><span class="badge badge-success">Active</span></td>
                 <td>78,500</td>
-                <td><a href="manage-lotteries.html">View Details</a></td>
+                <td><a href="manage-lotteries.php">View Details</a></td>
               </tr>
               <tr>
                 <td>Hajj 2025</td>
                 <td><span class="badge badge-success">Completed</span></td>
                 <td>112,300</td>
-                <td><a href="manage-lotteries.html">View Details</a></td>
+                <td><a href="manage-lotteries.php">View Details</a></td>
               </tr>
               <tr>
                 <td>Hajj 2024</td>
                 <td><span class="badge badge-success">Completed</span></td>
                 <td>98,700</td>
-                <td><a href="manage-lotteries.html">View Details</a></td>
+                <td><a href="manage-lotteries.php">View Details</a></td>
               </tr>
             </tbody>
           </table>
@@ -155,3 +159,4 @@
     </footer>
   </body>
 </html>
+

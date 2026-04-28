@@ -1,3 +1,7 @@
+<?php
+require_once '../includes/session.php';
+redirigerSiNonAutorise('user');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +15,13 @@
     
     <nav>
         <div class="container">
-            <a href="../public space/index.html" class="logo"> Hajj Platform</a>
+            <a href="../public space/index.php" class="logo"> Hajj Platform</a>
             <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="join-lottery.html">Join Lottery</a></li>
-                <li><a href="profile.html">My Profile</a></li>
-                <li><a href="notification.html">Notification</a></li>
-                <li><a href="../index.html">Logout</a></li>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="join-lottery.php">Join Lottery</a></li>
+                <li><a href="profile.php">My Profile</a></li>
+                <li><a href="notification.php">Notification</a></li>
+                <li><a href="../index.php">Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -81,7 +85,7 @@
                         their information is now available on our Results page. Congratulations to all the selected pilgrims!
                     </p>
                     <div>
-                        <a href="../results.html" class="btn btn-secondary">View Results</a>
+                        <a href="../results.php" class="btn btn-secondary">View Results</a>
                     </div>
                 </article>
 
@@ -152,3 +156,4 @@
     </footer>
 </body>
 </html>
+

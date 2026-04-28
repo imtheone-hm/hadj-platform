@@ -11,13 +11,13 @@
    
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">Hajj Platform</a>
+            <a href="index.php" class="logo">Hajj Platform</a>
             <h1 style="text-align: center;">Public Space</h1>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="results.html">Results</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="results.php">Results</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="signup.php">Sign Up</a></li>
             </ul>
         </div>
     </nav>
@@ -95,8 +95,8 @@
                 <h2>Ready to Join the Journey?</h2>
                 <p>Create your account today and participate in the Hajj lottery.</p>
                 <div>
-                    <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
-                    <a href="login.html" class="btn btn-secondary">Already a Member? Login</a>
+                    <a href="signup.php" class="btn btn-primary">Sign Up Now</a>
+                    <a href="login.php" class="btn btn-secondary">Already a Member? Login</a>
                 </div>
             </section>
         </div>

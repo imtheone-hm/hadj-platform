@@ -11,12 +11,12 @@
     
     <nav>
         <div class="container">
-            <a href="index.html" class="logo"> Hajj Platform</a>
+            <a href="index.php" class="logo"> Hajj Platform</a>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="results.html">Results</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="results.php">Results</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="signup.php">Sign Up</a></li>
             </ul>
         </div>
     </nav>
